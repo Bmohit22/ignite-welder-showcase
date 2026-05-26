@@ -1,8 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-welding.jpg";
-import fabricationImg from "@/assets/fabrication.jpg";
-import repairsImg from "@/assets/repairs.jpg";
-import lineBoringImg from "@/assets/line-boring.jpg";
+import heroImg from "@/assets/photo-hero.jpeg";
+import weldFlangeImg from "@/assets/photo-weld-flange.jpeg";
+import weldStainlessImg from "@/assets/photo-weld-stainless.jpeg";
+import lineBoringSnowImg from "@/assets/photo-line-boring-snow.jpeg";
+import bucketRepairImg from "@/assets/photo-bucket-repair.jpeg";
+import trailerServicesImg from "@/assets/photo-trailer-services.jpeg";
+import forestryImg from "@/assets/photo-forestry.jpeg";
+import towerImg from "@/assets/photo-tower.jpeg";
+import truckImg from "@/assets/photo-truck.jpeg";
 import {
   Wrench,
   Cog,
@@ -55,31 +60,37 @@ const services = [
     icon: Wrench,
     title: "Equipment Repairs",
     desc: "Reliable equipment repair services to restore machinery performance, reduce downtime, and keep operations running safely and effectively.",
+    img: bucketRepairImg,
   },
   {
     icon: Cog,
     title: "Mechanical Services",
     desc: "Professional mechanical repair and maintenance solutions tailored to meet your equipment and operational needs.",
+    img: forestryImg,
   },
   {
     icon: Flame,
     title: "Pressure Welding",
     desc: "Safe, durable, and precision welding completed to high-quality standards with attention to strength and reliability.",
+    img: weldFlangeImg,
   },
   {
     icon: Hammer,
     title: "Custom Fabrication",
     desc: "Custom metal fabrication designed and built to your exact project specifications, focused on durability and performance.",
+    img: towerImg,
   },
   {
     icon: Sparkles,
     title: "Aluminum & Stainless Welding",
     desc: "Specialized aluminum and stainless steel welding with precision craftsmanship and professional finishes.",
+    img: weldStainlessImg,
   },
   {
     icon: CircleDot,
     title: "Portable Line Boring",
     desc: "On-site portable line boring to restore worn bores and extend the life of heavy equipment, reducing downtime with accurate, dependable repairs.",
+    img: lineBoringSnowImg,
   },
 ];
 
@@ -89,6 +100,18 @@ const reasons = [
   { icon: Clock, title: "Reliable Service", desc: "Dependable, timely service that keeps equipment and projects moving." },
   { icon: Users, title: "Custom Solutions", desc: "Every project is different — we tailor solutions to your specific needs." },
   { icon: Heart, title: "Community Focused", desc: "Honest work and long-lasting customer relationships in our local community." },
+];
+
+const gallery = [
+  { src: weldFlangeImg, alt: "Precision TIG weld bead on stainless steel flange" },
+  { src: heroImg, alt: "Maxweld Ltd. service truck on-site with heavy equipment" },
+  { src: bucketRepairImg, alt: "Heavy equipment bucket repair with portable line boring" },
+  { src: lineBoringSnowImg, alt: "Portable line boring rig set up in winter conditions" },
+  { src: weldStainlessImg, alt: "Stainless steel pipe-to-flange weld" },
+  { src: forestryImg, alt: "On-site equipment repair in remote forestry location" },
+  { src: trailerServicesImg, alt: "Maxweld Ltd. mobile service trailer on site" },
+  { src: towerImg, alt: "Industrial structural welding on communications tower" },
+  { src: truckImg, alt: "Maxweld Ltd. branded service truck" },
 ];
 
 function Home() {
@@ -106,6 +129,7 @@ function Home() {
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <li><a href="#about" className="hover:text-ember transition-colors">About</a></li>
             <li><a href="#services" className="hover:text-ember transition-colors">Services</a></li>
+            <li><a href="#gallery" className="hover:text-ember transition-colors">Gallery</a></li>
             <li><a href="#why" className="hover:text-ember transition-colors">Why Us</a></li>
             <li><a href="#contact" className="hover:text-ember transition-colors">Contact</a></li>
           </ul>
@@ -122,13 +146,13 @@ function Home() {
       <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         <img
           src={heroImg}
-          alt="Welder at work with sparks flying in an industrial workshop"
+          alt="Maxweld Ltd. service truck on-site with heavy equipment and flames"
           width={1920}
           height={1080}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -168,13 +192,23 @@ function Home() {
 
       {/* ABOUT */}
       <section id="about" className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12 items-start">
+          <div className="lg:col-span-2 lg:sticky lg:top-24">
             <p className="text-ember text-xs font-bold uppercase tracking-[0.3em] mb-4">About Us</p>
             <h2 className="font-display text-4xl lg:text-5xl font-bold leading-tight">
               Built on Experience.<br/>
               <span className="text-ember">Driven by Quality.</span>
             </h2>
+            <div className="mt-8 rounded-xl overflow-hidden border border-border shadow-card">
+              <img
+                src={truckImg}
+                alt="Maxweld Ltd. branded service truck"
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="w-full h-72 object-cover"
+              />
+            </div>
           </div>
           <div className="lg:col-span-3 space-y-5 text-muted-foreground leading-relaxed">
             <p>
@@ -221,34 +255,62 @@ function Home() {
             {services.map((s) => (
               <article
                 key={s.title}
-                className="group relative p-7 rounded-xl bg-card border border-border hover:border-ember transition-all duration-300 shadow-card hover:-translate-y-1"
+                className="group relative rounded-xl bg-card border border-border hover:border-ember transition-all duration-300 shadow-card hover:-translate-y-1 overflow-hidden flex flex-col"
               >
-                <div className="w-12 h-12 rounded-lg bg-gradient-ember flex items-center justify-center mb-5 shadow-ember group-hover:scale-110 transition">
-                  <s.icon className="w-6 h-6 text-primary-foreground" />
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                  <div className="absolute top-4 left-4 w-11 h-11 rounded-lg bg-gradient-ember flex items-center justify-center shadow-ember">
+                    <s.icon className="w-5 h-5 text-primary-foreground" />
+                  </div>
                 </div>
-                <h3 className="font-display text-xl mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <div className="p-6 flex-1">
+                  <h3 className="font-display text-xl mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                </div>
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Image gallery */}
-          <div className="grid sm:grid-cols-3 gap-4 mt-12">
-            {[
-              { src: fabricationImg, alt: "Custom metal fabrication workshop" },
-              { src: repairsImg, alt: "Mechanical equipment repair" },
-              { src: lineBoringImg, alt: "Portable line boring machine" },
-            ].map((img) => (
-              <div key={img.alt} className="relative overflow-hidden rounded-lg aspect-[4/3] group">
+      {/* GALLERY */}
+      <section id="gallery" className="py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <p className="text-ember text-xs font-bold uppercase tracking-[0.3em] mb-4">Our Work</p>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold mb-4">
+              Real Jobs. <span className="text-ember">Real Craftsmanship.</span>
+            </h2>
+            <p className="text-muted-foreground">
+              A look at the welding, fabrication, and on-site repair work we've delivered across the community.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {gallery.map((img, i) => (
+              <div
+                key={img.alt}
+                className={`relative overflow-hidden rounded-lg group border border-border ${
+                  i === 0 || i === 4 ? "md:row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/3]"
+                }`}
+              >
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
                   width={1024}
                   height={768}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
               </div>
             ))}
           </div>
@@ -256,7 +318,7 @@ function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section id="why" className="py-24 lg:py-32">
+      <section id="why" className="py-24 lg:py-32 bg-card/30 border-y border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-ember text-xs font-bold uppercase tracking-[0.3em] mb-4">Why Choose Us</p>
@@ -267,7 +329,7 @@ function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {reasons.map((r) => (
-              <div key={r.title} className="p-6 rounded-xl border border-border bg-card/50 hover:bg-card transition shadow-card">
+              <div key={r.title} className="p-6 rounded-xl border border-border bg-card hover:border-ember transition shadow-card">
                 <r.icon className="w-8 h-8 text-ember mb-4" />
                 <h3 className="font-display text-lg mb-2">{r.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
@@ -278,8 +340,15 @@ function Home() {
       </section>
 
       {/* COMMITMENT */}
-      <section className="py-24 lg:py-32 relative overflow-hidden border-y border-border">
-        <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
+      <section className="py-24 lg:py-32 relative overflow-hidden border-b border-border">
+        <img
+          src={trailerServicesImg}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <p className="text-ember text-xs font-bold uppercase tracking-[0.3em] mb-4">Our Commitment</p>
           <h2 className="font-display text-4xl lg:text-6xl font-bold leading-tight mb-8">
