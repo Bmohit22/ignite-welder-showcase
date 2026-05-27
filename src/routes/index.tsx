@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/photo-hero.jpeg";
-import weldFlangeImg from "@/assets/photo-weld-flange.jpeg";
+import weldFlangeImg from "@/assets/pressure-welding.jpeg";
 import weldStainlessImg from "@/assets/photo-weld-stainless.jpeg";
 import lineBoringSnowImg from "@/assets/photo-line-boring-snow.jpeg";
 import bucketRepairImg from "@/assets/photo-bucket-repair.jpeg";
@@ -8,6 +8,12 @@ import trailerServicesImg from "@/assets/photo-trailer-services.jpeg";
 import forestryImg from "@/assets/photo-forestry.jpeg";
 import towerImg from "@/assets/photo-tower.jpeg";
 import truckImg from "@/assets/photo-truck.jpeg";
+import logo from "@/assets/maxweld-logo.png";
+import maxweldOutsideImg from "@/assets/maxweld-outside.jpeg";
+import maxweldInsideImg from "@/assets/maxweld-inside.jpeg";
+import maxweldVillageImg from "@/assets/maxweld-village.jpeg";
+import maxweldBikeImg from "@/assets/maxweld-bike.jpeg";
+import maxweldTowerImg from "@/assets/maxweld-tower.jpeg";
 import {
   Wrench,
   Cog,
@@ -60,7 +66,7 @@ const services = [
     icon: Wrench,
     title: "Equipment Repairs",
     desc: "Reliable equipment repair services to restore machinery performance, reduce downtime, and keep operations running safely and effectively.",
-    img: bucketRepairImg,
+    img: lineBoringSnowImg,
   },
   {
     icon: Cog,
@@ -90,7 +96,7 @@ const services = [
     icon: CircleDot,
     title: "Portable Line Boring",
     desc: "On-site portable line boring to restore worn bores and extend the life of heavy equipment, reducing downtime with accurate, dependable repairs.",
-    img: lineBoringSnowImg,
+    img: bucketRepairImg,
   },
 ];
 
@@ -103,15 +109,11 @@ const reasons = [
 ];
 
 const gallery = [
-  { src: weldFlangeImg, alt: "Precision TIG weld bead on stainless steel flange" },
-  { src: heroImg, alt: "Maxweld Ltd. service truck on-site with heavy equipment" },
-  { src: bucketRepairImg, alt: "Heavy equipment bucket repair with portable line boring" },
-  { src: lineBoringSnowImg, alt: "Portable line boring rig set up in winter conditions" },
-  { src: weldStainlessImg, alt: "Stainless steel pipe-to-flange weld" },
-  { src: forestryImg, alt: "On-site equipment repair in remote forestry location" },
-  { src: trailerServicesImg, alt: "Maxweld Ltd. mobile service trailer on site" },
-  { src: towerImg, alt: "Industrial structural welding on communications tower" },
-  { src: truckImg, alt: "Maxweld Ltd. branded service truck" },
+  { src: maxweldOutsideImg, alt: "Professional structural welding work at an industrial site near Lumby" },
+  { src: maxweldBikeImg, alt: "Custom motorcycle welding and metal fabrication work" },
+  { src: maxweldInsideImg, alt: "Interior industrial welding and steel fabrication project" },
+  { src: maxweldTowerImg, alt: "Steel tower structural welding and industrial repair work" },
+  { src: maxweldVillageImg, alt: "Heavy-duty welding and fabrication service in the Lumby area" },
 ];
 
 function Home() {
@@ -119,13 +121,15 @@ function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
-        <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-2">
-            <span className="w-9 h-9 rounded-md bg-gradient-ember flex items-center justify-center shadow-ember">
-              <Flame className="w-5 h-5 text-primary-foreground" />
-            </span>
-            <span className="font-display text-xl tracking-wide">MAXWELD <span className="text-ember">LTD.</span></span>
+      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <a href="#home" className="flex items-center gap-3">
+            <img
+              src={logo}
+              alt="MAXWELD Logo"
+              className="w-28 h-25 object-contain"
+            />
           </a>
+
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <li><a href="#about" className="hover:text-ember transition-colors">About</a></li>
             <li><a href="#services" className="hover:text-ember transition-colors">Services</a></li>
@@ -133,13 +137,8 @@ function Home() {
             <li><a href="#why" className="hover:text-ember transition-colors">Why Us</a></li>
             <li><a href="#contact" className="hover:text-ember transition-colors">Contact</a></li>
           </ul>
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-ember text-primary-foreground text-sm font-semibold hover:opacity-90 transition shadow-ember"
-          >
-            Request Quote <ArrowRight className="w-4 h-4" />
-          </a>
-        </nav>
+
+      </nav>
       </header>
 
       {/* HERO */}
@@ -293,24 +292,18 @@ function Home() {
               A look at the welding, fabrication, and on-site repair work we've delivered across the community.
             </p>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {gallery.map((img, i) => (
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+            {gallery.map((img) => (
               <div
                 key={img.alt}
-                className={`relative overflow-hidden rounded-lg group border border-border ${
-                  i === 0 || i === 4 ? "md:row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/3]"
-                }`}
+                className="overflow-hidden rounded-2xl border border-border bg-card break-inside-avoid group"
               >
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  className="w-full h-auto object-contain transition duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
               </div>
             ))}
           </div>
