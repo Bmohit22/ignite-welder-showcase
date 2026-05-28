@@ -14,6 +14,7 @@ import maxweldInsideImg from "@/assets/maxweld-inside.jpeg";
 import maxweldVillageImg from "@/assets/maxweld-village.jpeg";
 import maxweldBikeImg from "@/assets/maxweld-bike.jpeg";
 import maxweldTowerImg from "@/assets/maxweld-tower.jpeg";
+import maxweldWorkshopImg from "@/assets/maxweld-warehouse.jpeg";
 import {
   Wrench,
   Cog,
@@ -31,6 +32,8 @@ import {
   Users,
   Heart,
   ArrowRight,
+  Instagram,
+  Facebook,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -114,6 +117,7 @@ const gallery = [
   { src: maxweldInsideImg, alt: "Interior industrial welding and steel fabrication project" },
   { src: maxweldTowerImg, alt: "Steel tower structural welding and industrial repair work" },
   { src: maxweldVillageImg, alt: "Heavy-duty welding and fabrication service in the Lumby area" },
+  { src: maxweldWorkshopImg, alt: "Workshop welding and fabrication service in the Lumby area" },
 ];
 
 function Home() {
@@ -395,10 +399,48 @@ function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
-            <ContactCard icon={Phone} label="Phone" value="(250) 308-1040" href="tel:+12503081040" />
-            <ContactCard icon={Mail} label="Email" value="maxweld.ltd@gmail.com" href="mailto:maxweld.ltd@gmail.com" />
-            <ContactCard icon={MapPin} label="Location" value="Lumby, BC" />
-            <ContactCard icon={Inbox} label="PO Box" value="878" />
+            <ContactCard
+              icon={Phone}
+              label="Phone"
+              value="(250) 308-1040"
+              href="tel:+12503081040"
+            />
+
+            <ContactCard
+              icon={Mail}
+              label="Email"
+              value="maxweld.ltd@gmail.com"
+              href="mailto:maxweld.ltd@gmail.com"
+            />
+
+            <ContactCard
+              icon={MapPin}
+              label="Location"
+              value="Lumby, BC, V0E2G0"
+            />
+
+            <ContactCard
+              icon={Inbox}
+              label="PO Box"
+              value="678"
+            />
+
+            {/* Instagram */}
+            <ContactCard
+              icon={Instagram}
+              label="Instagram"
+              value="@maxweld"
+              href="https://instagram.com/maxweld.316"
+            />
+
+            {/* Facebook */}
+            <ContactCard
+              icon={Facebook}
+              label="Facebook"
+              value="MaxWeld Ltd"
+              href="https://www.facebook.com/people/Maxweld-Ltd/100054299690860/"
+            />
+
             <a
               href="mailto:maxweld.ltd@gmail.com"
               className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-gradient-ember text-primary-foreground font-semibold shadow-ember hover:opacity-90 transition"
