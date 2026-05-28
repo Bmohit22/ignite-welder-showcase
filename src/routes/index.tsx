@@ -455,10 +455,10 @@ function Home() {
       <footer className="border-t border-border py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-md bg-gradient-ember flex items-center justify-center">
-              <Flame className="w-4 h-4 text-primary-foreground" />
+            <span className="w-8 h-8 rounded-md bg-gradient-ember flex items-center justify-center">
+              <Flame className="w-6 h-6 text-primary-foreground" />
             </span>
-            <span className="font-display tracking-wide">MAXWELD <span className="text-ember">LTD.</span></span>
+            <span className="font-display tracking-wide text-lg">MAXWELD <span className="text-ember">LTD.</span></span>
           </div>
           <p>© {new Date().getFullYear()} MAXWELD LTD. — Built Strong. Welded Right.</p>
         </div>
